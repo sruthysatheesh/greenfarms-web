@@ -3,30 +3,75 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     text-align: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./assets/bg.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./assets/bg.jpg);
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    overflow: hidden;
+}
+
+img {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(0.9);
 }
 
 h1 {
-    color: rgb(165, 254, 178);
-    font-weight: bold;
-    font-size: 3rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c8819;
+    font-weight: 700;
+    font-size: 4rem;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    font-size: 1.8rem;
+    font-family: 'Segoe UI', sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    color: #2c8819;
     font-weight: 200;
     font-size: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 p {
-    color: rgb(102, 160, 102);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 200;
-    font-size: 1.5rem;
+    color: #2c8819;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+p:last-of-type {
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
 }
