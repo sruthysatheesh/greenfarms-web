@@ -4,105 +4,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Greenera Farms — Farm to Table, Naturally</title>
+    <meta name="description"
+        content="Greenera Farms — A community-driven sustainable farm. Fresh, natural, and lovingly grown produce delivered straight from our fields to your table.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <header class="main-header">
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="main-header" id="navbar">
         <a href="#" class="brand-container">
-            <img src="assets/logo1.png" alt="logo" class="logo">
-            <div class="brand-text">
-                <h1>GREENERA</h1>
-                <h3>FARMS</h3>
-            </div>
+            <img src="assets/logo1.png" alt="Greenera Farms Logo" class="logo">
         </a>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#community">Community Model</a></li>
-            <li><a href="#">Farm Features</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about" id="nav-about">About</a></li>
+                <li><a href="#community" id="nav-community">Community</a></li>
+                <li><a href="#farm" id="nav-farm">Farm</a></li>
+                <li><a href="#gallery" id="nav-gallery">Gallery</a></li>
+                <li><a href="#faq" id="nav-faq">FAQ</a></li>
+                <li><a href="#contact" id="nav-contact" class="nav-cta">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero-window">
-        <p class="contact-info">Contact us at life@greenerafarms.in</p>
+    <!-- ===== HERO ===== -->
+    <section class="hero-section" id="home">
+        <div class="hero-bg-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-brand reveal-fade">
+                <img src="assets/logo1.png" alt="Greenera Farms" class="hero-logo">
+                <span class="hero-wordmark-name">GREENERA</span>
+                <span class="hero-wordmark-sub">FARMS</span>
+            </div>
+            <p class="hero-eyebrow reveal-fade">Rooted in nature · Grown with love</p>
+            <div class="hero-actions reveal-fade">
+                <a href="#about" class="btn-primary" id="hero-learn-more">Discover Our Story</a>
+                <a href="#contact" class="btn-ghost" id="hero-join">Join the Farm</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint reveal-fade">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
     </section>
 
-    <section id="about" class="content-section hidden">
-        <h2>About</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="content-section about-section scroll-reveal">
+        <div class="section-inner two-col">
+            <div class="col-text">
+                <p class="section-eyebrow">Who We Are</p>
+                <h2 class="section-title">A <em>living</em> farm,<br>a thriving community.</h2>
+                <p class="section-body">We are Greenera Farms — a collective of farmers, families, and food-lovers
+                    dedicated to growing the cleanest, most nourishing food in harmony with nature. Every seed we plant
+                    is an act of hope.</p>
+                <p class="section-body">Our farm spans acres of sun-drenched fields where heritage varieties grow
+                    slowly, naturally, and abundantly — the way they were always meant to.</p>
+                <a href="#community" class="btn-text" id="about-read-more">Explore Community Model →</a>
+            </div>
+            <div class="col-image">
+                <div class="image-frame">
+                    <img src="assets/photo.jpg" alt="Golden wheat growing at Greenera Farms" class="section-image">
+                    <div class="image-tag">Est. in harmony with nature</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="community" class="content-section hidden">
-        <h2>Community Model</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium tincidunt lacus. Nulla gravida
-            orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis
-            sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.
-            Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis,
-            id tincidunt sapien risus a quam.</p>
+    <!-- ===== COMMUNITY ===== -->
+    <section id="community" class="content-section community-section scroll-reveal">
+        <div class="section-inner centered">
+            <p class="section-eyebrow">The Model</p>
+            <h2 class="section-title">Farming <em>together</em>,<br>harvesting abundance.</h2>
+            <p class="section-body max-600">Our community model puts people at the heart of agriculture. Members get
+                weekly harvest boxes, farm access, seasonal workshops, and a real stake in where their food comes from.
+            </p>
+            <div class="pillars-grid">
+                <div class="pillar-card" id="pillar-1">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22V12" />
+                            <path d="M12 12C12 12 7 9 7 5a5 5 0 0 1 10 0c0 4-5 7-5 7z" />
+                            <path d="M12 12C12 12 17 9.5 19 6" />
+                        </svg>
+                    </div>
+                    <h3>Seasonal Harvest</h3>
+                    <p>Fresh produce delivered weekly — picked at peak ripeness, never a day too early.</p>
+                </div>
+                <div class="pillar-card" id="pillar-2">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 11H7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2z" />
+                            <path d="M12 2a4 4 0 0 1 4 4v5H8V6a4 4 0 0 1 4-4z" />
+                            <circle cx="12" cy="16" r="1" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3>Community Shares</h3>
+                    <p>Flexible membership plans that let you own a share of the harvest season.</p>
+                </div>
+                <div class="pillar-card" id="pillar-3">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12a9 9 0 1 1-9-9" />
+                            <path d="M21 3v4.5" />
+                            <path d="M21 3h-4.5" />
+                            <path d="M12 8v4l3 3" />
+                        </svg>
+                    </div>
+                    <h3>Zero Waste Farming</h3>
+                    <p>Composting, water harvesting, and natural pest management guide every decision.</p>
+                </div>
+                <div class="pillar-card" id="pillar-4">
+                    <div class="pillar-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4" />
+                            <line x1="12" y1="2" x2="12" y2="5" />
+                            <line x1="12" y1="19" x2="12" y2="22" />
+                            <line x1="2" y1="12" x2="5" y2="12" />
+                            <line x1="19" y1="12" x2="22" y2="12" />
+                            <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
+                            <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
+                            <line x1="19.78" y1="4.22" x2="17.66" y2="6.34" />
+                            <line x1="6.34" y1="17.66" x2="4.22" y2="19.78" />
+                        </svg>
+                    </div>
+                    <h3>Summer Workshops</h3>
+                    <p>Learn fermentation, seed saving, natural cooking, and the rhythms of the land.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="farm" class="content-section hidden">
-        <h2>Farm Features</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
-            erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
-            Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut
-            dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.</p>
+    <!-- ===== FARM FEATURES ===== -->
+    <section id="farm" class="content-section farm-section scroll-reveal">
+        <div class="section-inner two-col reverse">
+            <div class="col-image">
+                <div class="image-frame tall">
+                    <img src="assets/bg.jpg" alt="Lush greenery at Greenera Farms" class="section-image">
+                </div>
+            </div>
+            <div class="col-text">
+                <p class="section-eyebrow">Farm Features</p>
+                <h2 class="section-title">Designed by<br><em>nature</em>, refined<br>by care.</h2>
+                <ul class="feature-list">
+                    <li><span class="feature-dot"></span>Over 40 heritage fruit and vegetable varieties</li>
+                    <li><span class="feature-dot"></span>Naturally irrigated with rainwater harvesting</li>
+                    <li><span class="feature-dot"></span>No synthetic pesticides or fertilisers — ever</li>
+                    <li><span class="feature-dot"></span>Pollinator-friendly hedgerows and wildflower meadows</li>
+                    <li><span class="feature-dot"></span>Solar-powered cold storage and processing units</li>
+                </ul>
+                <a href="#contact" class="btn-primary" id="farm-visit-btn">Plan a Visit</a>
+            </div>
+        </div>
     </section>
 
-    <section id="gallery" class="content-section hidden">
-        <h2>Gallery</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
-            erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
-            Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut
-            dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.</p>
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="content-section gallery-section scroll-reveal">
+        <div class="section-inner centered">
+            <p class="section-eyebrow">The Fields</p>
+            <h2 class="section-title">A season in<br><em>golden light.</em></h2>
+            <div class="gallery-mosaic">
+                <div class="gallery-card tall" id="gal-1">
+                    <img src="assets/photo.jpg" alt="Summer wheat fields">
+                    <div class="gallery-caption">Summer Fields</div>
+                </div>
+                <div class="gallery-card" id="gal-2">
+                    <img src="assets/bg.jpg" alt="Farm foliage">
+                    <div class="gallery-caption">Living Canopy</div>
+                </div>
+                <div class="gallery-card" id="gal-3">
+                    <img src="assets/photo.jpg" alt="Harvest season">
+                    <div class="gallery-caption">Harvest Season</div>
+                </div>
+                <div class="gallery-card wide" id="gal-4">
+                    <img src="assets/bg.jpg" alt="The farm">
+                    <div class="gallery-caption">Our Green World</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="faq" class="content-section hidden">
-        <h2>FAQ</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
-            erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
-            Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut
-            dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.</p>
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="content-section faq-section scroll-reveal">
+        <div class="section-inner centered narrow">
+            <p class="section-eyebrow">Questions</p>
+            <h2 class="section-title">Everything you<br>want to <em>know.</em></h2>
+            <div class="faq-list">
+                <div class="faq-item" id="faq-1">
+                    <button class="faq-question" aria-expanded="false">How do I become a member?</button>
+                    <div class="faq-answer">
+                        <p>Simply fill out our contact form or email us at life@greenerafarms.in. We offer flexible
+                            seasonal and annual membership plans to suit every household.</p>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-2">
+                    <button class="faq-question" aria-expanded="false">What's included in a harvest box?</button>
+                    <div class="faq-answer">
+                        <p>Each weekly harvest box contains 8–12 varieties of freshly picked seasonal vegetables,
+                            fruits, and herbs — sourced directly from our fields that morning.</p>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-3">
+                    <button class="faq-question" aria-expanded="false">Can I visit the farm?</button>
+                    <div class="faq-answer">
+                        <p>Absolutely! Members are welcome to visit during our open farm days. We also host guided tours
+                            and seasonal workshops. Contact us to book your visit.</p>
+                    </div>
+                </div>
+                <div class="faq-item" id="faq-4">
+                    <button class="faq-question" aria-expanded="false">Is everything organically grown?</button>
+                    <div class="faq-answer">
+                        <p>Yes. We use zero synthetic chemicals, follow regenerative agriculture principles, and are
+                            committed to full transparency in all our farming practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="content-section hidden">
-        <h2>Contact</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
-            erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
-            Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut
-            dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.</p>
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="content-section contact-section scroll-reveal">
+        <div class="section-inner centered">
+            <p class="section-eyebrow">Get In Touch</p>
+            <h2 class="section-title">Ready to grow<br><em>with us?</em></h2>
+            <p class="section-body max-600">Whether you're curious about membership, planning a visit, or just want to
+                say hello — we'd love to hear from you.</p>
+            <a href="mailto:life@greenerafarms.in" class="contact-email"
+                id="contact-email-link">life@greenerafarms.in</a>
+            <div class="contact-divider"></div>
+            <p class="contact-tagline">Growing goodness, one season at a time.</p>
+        </div>
     </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <img src="assets/logo1.png" alt="Greenera Farms" class="footer-logo">
+            <p class="footer-copy">© 2025 Greenera Farms. Grown with love.</p>
+        </div>
+    </footer>
 
     <script>
-        // Navbar scroll logic
+        // ── Navbar scroll behaviour ──
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                document.body.classList.add('scrolled');
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
             } else {
-                document.body.classList.remove('scrolled');
+                navbar.classList.remove('scrolled');
             }
         });
 
-        // Scroll animation logic for sections
-        const observer = new IntersectionObserver((entries) => {
+        // ── Scroll-reveal for sections ──
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
+
+        // ── Staggered word reveal on hero ──
+        const wordRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const words = entry.target.querySelectorAll('.word-reveal, .reveal-fade');
+                    words.forEach((w, i) => {
+                        setTimeout(() => w.classList.add('revealed'), i * 120);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.hero-content').forEach(el => wordRevealObserver.observe(el));
+        // Also trigger immediately since hero is visible on load
+        setTimeout(() => {
+            document.querySelectorAll('.word-reveal, .reveal-fade').forEach((w, i) => {
+                setTimeout(() => w.classList.add('revealed'), 300 + i * 130);
+            });
+        }, 100);
+
+        // ── Pillar card stagger ──
+        const pillarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.pillar-card').forEach((card, i) => {
+                        setTimeout(() => card.classList.add('card-visible'), i * 120);
+                    });
                 }
             });
         }, { threshold: 0.1 });
+        document.querySelectorAll('.pillars-grid').forEach(g => pillarObserver.observe(g));
 
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
+        // ── FAQ accordion ──
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+                // close all
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    i.classList.remove('open');
+                });
+
+                if (!isOpen) {
+                    btn.setAttribute('aria-expanded', 'true');
+                    item.classList.add('open');
+                }
+            });
+        });
     </script>
 </body>
 
