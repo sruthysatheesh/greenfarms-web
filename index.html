@@ -197,25 +197,56 @@
             <p class="section-eyebrow">The Fields</p>
             <h2 class="section-title">A season in<br><em>golden light.</em></h2>
             <div class="gallery-mosaic">
-                <div class="gallery-card tall" id="gal-1">
-                    <img src="assets/photo.jpg" alt="Summer wheat fields">
+                <div class="gallery-card tall" id="gal-1" data-caption="Summer Fields">
+                    <img src="assets/coconute.jpg" alt="Summer wheat fields">
                     <div class="gallery-caption">Summer Fields</div>
                 </div>
-                <div class="gallery-card" id="gal-2">
-                    <img src="assets/bg.jpg" alt="Farm foliage">
+                <div class="gallery-card" id="gal-2" data-caption="Living Canopy">
+                    <img src="assets/fam.jpeg" alt="Farm foliage">
                     <div class="gallery-caption">Living Canopy</div>
                 </div>
-                <div class="gallery-card" id="gal-3">
-                    <img src="assets/photo.jpg" alt="Harvest season">
+                <div class="gallery-card" id="gal-3" data-caption="Harvest Season">
+                    <img src="assets/greens.jpg" alt="Harvest season">
                     <div class="gallery-caption">Harvest Season</div>
                 </div>
-                <div class="gallery-card wide" id="gal-4">
-                    <img src="assets/bg.jpg" alt="The farm">
+                <div class="gallery-card" id="gal-4" data-caption="Our Green World">
+                    <img src="assets/solar.jpg" alt="The farm">
                     <div class="gallery-caption">Our Green World</div>
+                </div>
+                <div class="gallery-card wide" id="gal-5" data-caption="The Path Within">
+                    <img src="assets/path.jpg" alt="Farm pathway">
+                    <div class="gallery-caption">The Path Within</div>
+                </div>
+                <div class="gallery-card" id="gal-6" data-caption="Papaya Grove">
+                    <img src="assets/pond.JPG" alt="Papaya trees">
+                    <div class="gallery-caption">Papaya Grove</div>
+                </div>
+                <div class="gallery-card tall" id="gal-7" data-caption="Reflecting Waters">
+                    <img src="assets/pond.jpg" alt="Farm pond">
+                    <div class="gallery-caption">Reflecting Waters</div>
+                </div>
+                <div class="gallery-card" id="gal-8" data-caption="Lush Greenery">
+                    <img src="assets/greenery.jpg" alt="Farm greenery">
+                    <div class="gallery-caption">Lush Greenery</div>
+                </div>
+                <div class="gallery-card" id="gal-9" data-caption="Community Life">
+                    <img src="assets/photo.jpg" alt="Life at the farm">
+                    <div class="gallery-caption">Community Life</div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#8592;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img" id="lightbox-img">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">&#8594;</button>
+    </div>
 
     <!-- ===== FAQ ===== -->
     <section id="faq" class="content-section faq-section scroll-reveal">
@@ -393,6 +424,77 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.pillars-grid').forEach(g => pillarObserver.observe(g));
+
+        // ── Gallery Lightbox ──
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCap = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            const card = galleryCards[index];
+            const img = card.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCap.textContent = card.dataset.caption || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => { lightboxImg.src = ''; }, 300);
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + galleryCards.length) % galleryCards.length;
+            const card = galleryCards[currentIndex];
+            lightboxImg.classList.add('lb-transition');
+            setTimeout(() => {
+                lightboxImg.src = card.querySelector('img').src;
+                lightboxImg.alt = card.querySelector('img').alt;
+                lightboxCap.textContent = card.dataset.caption || '';
+                lightboxImg.classList.remove('lb-transition');
+            }, 150);
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % galleryCards.length;
+            const card = galleryCards[currentIndex];
+            lightboxImg.classList.add('lb-transition');
+            setTimeout(() => {
+                lightboxImg.src = card.querySelector('img').src;
+                lightboxImg.alt = card.querySelector('img').alt;
+                lightboxCap.textContent = card.dataset.caption || '';
+                lightboxImg.classList.remove('lb-transition');
+            }, 150);
+        }
+
+        galleryCards.forEach((card, i) => {
+            card.addEventListener('click', () => openLightbox(i));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrev);
+        lightboxNext.addEventListener('click', showNext);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        });
 
         // ── FAQ accordion ──
         document.querySelectorAll('.faq-question').forEach(btn => {
