@@ -646,141 +646,202 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================================
-   GALLERY
+   GALLERY CAROUSEL
    ============================================================ */
 .gallery-section {
     background: var(--cream);
+    /* No overflow:hidden — it clips the carousel track */
 }
 
 .gallery-section .section-title { color: var(--forest-dark); }
 
-.gallery-mosaic {
-    display: flex;
-    flex-direction: row;
-    gap: 0.85rem;
-    margin-top: 3rem;
+/* Make the centered inner container stretch full width for the gallery */
+.gallery-section .section-inner {
+    max-width: 100%;
     width: 100%;
-    max-width: 1100px;
+    padding: 0 3rem;
+}
+
+/* Outer wrapper */
+.gallery-carousel {
+    position: relative;
+    width: 100%;          /* fills the section naturally */
+    align-self: stretch;  /* override flex centre-shrink from section-inner.centered */
+    margin-top: 3rem;
+    padding: 2rem 0 1rem;
+}
+
+/* ── Track: hidden scrollbar, no snap (JS controls scroll) ── */
+.gc-track {
+    display: flex;
+    gap: 1.4rem;
     overflow-x: auto;
     overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 1.2rem; /* room for custom scrollbar */
-    /* fade edges */
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 3%,
-        black 94%,
-        transparent 100%
-    );
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 3%,
-        black 94%,
-        transparent 100%
-    );
-    /* thin custom scrollbar */
-    scrollbar-width: thin;
-    scrollbar-color: var(--sage) transparent;
+    scroll-behavior: smooth;
+    /* side padding lets first & last card centre — 240px ≈ half card width */
+    padding: 2rem 240px;
+    /* hide scrollbar but allow vertical overflow for scale effect */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: visible;
 }
+.gc-track::-webkit-scrollbar { display: none; }
 
-.gallery-mosaic::-webkit-scrollbar {
-    height: 4px;
-}
-.gallery-mosaic::-webkit-scrollbar-track {
-    background: transparent;
-}
-.gallery-mosaic::-webkit-scrollbar-thumb {
-    background: var(--sage);
-    border-radius: 4px;
-}
-
+/* ── Individual cards ── */
 .gallery-card {
     position: relative;
-    flex: 0 0 320px;          /* fixed width — change to add more per view */
-    height: 420px;
+    flex: 0 0 480px;
+    height: 520px;
     overflow: hidden;
     cursor: pointer;
-    border-radius: 8px;
-    scroll-snap-align: start;
-    box-shadow: 0 4px 24px rgba(28, 59, 40, 0.12);
-    transition: box-shadow 0.35s ease, transform 0.35s ease;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(28, 59, 40, 0.10);
+    /* non-active: dimmed and shrunk */
+    opacity: 0.35;
+    transform: scale(0.72);
+    transition:
+        opacity   0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.6s ease;
+    will-change: transform, opacity;
 }
 
-/* first card slightly wider as hero anchor */
-.gallery-card:first-child {
-    flex: 0 0 400px;
+/* Active card — zoomed in, full colour, pops forward */
+.gallery-card.gc-active {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 32px 80px rgba(28, 59, 40, 0.35);
+    z-index: 2;
 }
 
-.gallery-card:hover {
-    box-shadow: 0 12px 40px rgba(28, 59, 40, 0.22);
-    transform: translateY(-3px);
+/* Gold accent bar at bottom of active card */
+.gallery-card.gc-active::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    z-index: 3;
+    animation: bar-in 0.4s var(--ease-out) forwards;
 }
 
-/* remove old tall/wide span classes — all cards same size now */
-.gallery-card.tall,
-.gallery-card.wide {
-    grid-row: unset;
-    grid-column: unset;
+@keyframes bar-in {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
 }
 
+/* Image zoom on active */
 .gallery-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.65s var(--ease-smooth);
+    transform: scale(1.04); /* slightly zoomed in by default */
 }
 
-.gallery-card:hover img { transform: scale(1.07); }
+.gallery-card.gc-active img {
+    transform: scale(1);
+}
 
-/* Expand icon hint on hover */
+/* Caption — always visible on active, hover on others */
+.gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2rem 1.5rem 1.2rem;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--cream);
+    background: linear-gradient(transparent, rgba(28, 59, 40, 0.72));
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 2;
+}
+
+.gallery-card.gc-active .gallery-caption,
+.gallery-card:hover .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Expand hint on active card hover */
 .gallery-card::after {
     content: '⤢';
     position: absolute;
-    top: 0.85rem;
-    right: 0.9rem;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
+    top: 1rem; right: 1rem;
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
     color: var(--cream);
-    background: rgba(28, 59, 40, 0.45);
+    background: rgba(28, 59, 40, 0.5);
     backdrop-filter: blur(6px);
     border-radius: 50%;
     opacity: 0;
-    transform: scale(0.7);
+    transform: scale(0.6);
     transition: opacity 0.3s ease, transform 0.3s var(--ease-spring);
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
 }
 
-.gallery-card:hover::after {
+.gallery-card.gc-active:hover::after {
     opacity: 1;
     transform: scale(1);
 }
 
-.gallery-caption {
+/* ── Prev / Next arrows ── */
+.gc-arrow {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 1.4rem 1.2rem 1rem;
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--cream);
-    background: linear-gradient(transparent, rgba(28, 59, 40, 0.65));
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(246, 241, 233, 0.9);
+    border: 1px solid rgba(45, 90, 61, 0.15);
+    color: var(--forest);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(28, 59, 40, 0.15);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.gallery-card:hover .gallery-caption {
-    opacity: 1;
-    transform: translateY(0);
+.gc-prev { left:  clamp(0.5rem, 2vw, 2rem); }
+.gc-next { right: clamp(0.5rem, 2vw, 2rem); }
+
+.gc-arrow:hover {
+    background: var(--forest);
+    color: var(--cream);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 8px 28px rgba(28, 59, 40, 0.25);
+}
+
+/* ── Dot indicators ── */
+.gc-dots {
+    display: flex;
+    gap: 0.45rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.8rem;
+    max-width: 600px;
+}
+
+.gc-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--sage-light);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease, transform 0.3s var(--ease-spring), width 0.3s ease;
+}
+
+.gc-dot.gc-dot-active {
+    background: var(--gold);
+    width: 22px;
+    border-radius: 4px;
+    transform: none;
 }
 
 /* ============================================================
@@ -1055,11 +1116,11 @@ a { text-decoration: none; color: inherit; }
     }
 
     .gallery-card {
-        flex: 0 0 260px;
-        height: 360px;
+        flex: 0 0 340px;
+        height: 400px;
     }
-    .gallery-card:first-child {
-        flex: 0 0 320px;
+    .gc-track {
+        padding: 2rem 170px;
     }
 }
 
@@ -1073,15 +1134,17 @@ a { text-decoration: none; color: inherit; }
 
     .pillars-grid { grid-template-columns: 1fr; }
 
-    .gallery-mosaic {
-        gap: 0.6rem;
-    }
+    .gallery-mosaic { gap: 0.6rem; }
     .gallery-card {
-        flex: 0 0 200px;
-        height: 270px;
+        flex: 0 0 80vw;
+        height: 300px;
     }
-    .gallery-card:first-child {
-        flex: 0 0 240px;
+    .gc-track {
+        padding: 1.5rem 1.5rem;
+    }
+    .gc-arrow {
+        width: 38px; height: 38px;
+        font-size: 1rem;
     }
 
     .hero-actions { flex-direction: column; align-items: center; }

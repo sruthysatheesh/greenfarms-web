@@ -173,7 +173,8 @@
         <div class="section-inner two-col reverse">
             <div class="col-image">
                 <div class="image-frame tall">
-                    <img src="assets/intercrops.jpeg" alt="Lush greenery at Greenera Farms" class="section-image">
+                    <img src="assets/gallery/intercrops.jpeg" alt="Lush greenery at Greenera Farms"
+                        class="section-image">
                 </div>
             </div>
             <div class="col-text">
@@ -196,48 +197,117 @@
         <div class="section-inner centered">
             <p class="section-eyebrow">The Fields</p>
             <h2 class="section-title">A season in<br><em>golden light.</em></h2>
-            <div class="gallery-mosaic">
-                <div class="gallery-card tall" id="gal-1" data-caption="Summer Fields">
-                    <img src="assets/coconute.jpg" alt="Summer wheat fields">
-                    <div class="gallery-caption">Summer Fields</div>
-                </div>
-                <div class="gallery-card" id="gal-2" data-caption="Living Canopy">
-                    <img src="assets/fam.jpeg" alt="Farm foliage">
-                    <div class="gallery-caption">Living Canopy</div>
-                </div>
-                <div class="gallery-card" id="gal-3" data-caption="Harvest Season">
-                    <img src="assets/greens.jpg" alt="Harvest season">
-                    <div class="gallery-caption">Harvest Season</div>
-                </div>
-                <div class="gallery-card" id="gal-4" data-caption="Our Green World">
-                    <img src="assets/solar.jpg" alt="The farm">
-                    <div class="gallery-caption">Our Green World</div>
-                </div>
-                <div class="gallery-card wide" id="gal-5" data-caption="The Path Within">
-                    <img src="assets/path.jpg" alt="Farm pathway">
-                    <div class="gallery-caption">The Path Within</div>
-                </div>
-                <div class="gallery-card" id="gal-6" data-caption="Papaya Grove">
-                    <img src="assets/pond.JPG" alt="Papaya trees">
-                    <div class="gallery-caption">Papaya Grove</div>
-                </div>
-                <div class="gallery-card tall" id="gal-7" data-caption="Reflecting Waters">
-                    <img src="assets/pond.jpg" alt="Farm pond">
-                    <div class="gallery-caption">Reflecting Waters</div>
-                </div>
-                <div class="gallery-card" id="gal-8" data-caption="Lush Greenery">
-                    <img src="assets/greenery.jpg" alt="Farm greenery">
-                    <div class="gallery-caption">Lush Greenery</div>
-                </div>
-                <div class="gallery-card" id="gal-9" data-caption="Community Life">
-                    <img src="assets/photo.jpg" alt="Life at the farm">
-                    <div class="gallery-caption">Community Life</div>
-                </div>
-            </div>
+
+            <div class="gallery-carousel" id="galleryCarousel">
+                <button class="gc-arrow gc-prev" id="gcPrev" aria-label="Previous image">&#8592;</button>
+                <button class="gc-arrow gc-next" id="gcNext" aria-label="Next image">&#8594;</button>
+
+                <div class="gc-track" id="gcTrack">
+                    <div class="gallery-card" id="gal-1" data-caption="Summer Fields">
+                        <img src="assets/gallery/coconute.jpg" alt="Summer wheat fields">
+                        <div class="gallery-caption">Summer Fields</div>
+                    </div>
+                    <div class="gallery-card" id="gal-2" data-caption="Living Canopy">
+                        <img src="assets/gallery/fam.jpeg" alt="Farm foliage">
+                        <div class="gallery-caption">Living Canopy</div>
+                    </div>
+                    <div class="gallery-card" id="gal-3" data-caption="Harvest Season">
+                        <img src="assets/gallery/greens.jpg" alt="Harvest season">
+                        <div class="gallery-caption">Harvest Season</div>
+                    </div>
+                    <div class="gallery-card" id="gal-4" data-caption="Our Green World">
+                        <img src="assets/gallery/solar.jpg" alt="The farm">
+                        <div class="gallery-caption">Our Green World</div>
+                    </div>
+                    <div class="gallery-card" id="gal-5" data-caption="The Path Within">
+                        <img src="assets/gallery/path.jpg" alt="Farm pathway">
+                        <div class="gallery-caption">The Path Within</div>
+                    </div>
+                    <div class="gallery-card" id="gal-6" data-caption="Pond">
+                        <img src="assets/gallery/pond.JPG" alt="Farm pond">
+                        <div class="gallery-caption">Pond</div>
+                    </div>
+                    <div class="gallery-card" id="gal-7" data-caption="Arali Blooms">
+                        <img src="assets/gallery/arali.jpeg" alt="Arali flowers">
+                        <div class="gallery-caption">Arali Blooms</div>
+                    </div>
+                    <div class="gallery-card" id="gal-8" data-caption="Lush Greenery">
+                        <img src="assets/gallery/greenery.jpg" alt="Farm greenery">
+                        <div class="gallery-caption">Lush Greenery</div>
+                    </div>
+                    <div class="gallery-card" id="gal-9" data-caption="Food Forest">
+                        <img src="assets/gallery/food forest.jpg" alt="Food forest">
+                        <div class="gallery-caption">Food Forest</div>
+                    </div>
+                    <div class="gallery-card" id="gal-10" data-caption="The Well">
+                        <img src="assets/gallery/well.jpg" alt="Farm well">
+                        <div class="gallery-caption">The Well</div>
+                    </div>
+                    <div class="gallery-card" id="gal-11" data-caption="Nursery">
+                        <img src="assets/gallery/nursery.jpeg" alt="Plant nursery">
+                        <div class="gallery-caption">Nursery</div>
+                    </div>
+                    <div class="gallery-card" id="gal-12" data-caption="Seeds">
+                        <img src="assets/gallery/seeds.jpeg" alt="Seeds">
+                        <div class="gallery-caption">Seeds</div>
+                    </div>
+                    <div class="gallery-card" id="gal-13" data-caption="Okra Harvest">
+                        <img src="assets/gallery/okra.jpg" alt="Okra">
+                        <div class="gallery-caption">Okra Harvest</div>
+                    </div>
+                    <div class="gallery-card" id="gal-14" data-caption="Mango Trees">
+                        <img src="assets/gallery/mango.jpeg" alt="Mango">
+                        <div class="gallery-caption">Mango Trees</div>
+                    </div>
+                    <div class="gallery-card" id="gal-15" data-caption="From the Forest">
+                        <img src="assets/gallery/food from food forest.JPG" alt="Forest food">
+                        <div class="gallery-caption">From the Forest</div>
+                    </div>
+                    <div class="gallery-card" id="gal-16" data-caption="Guava">
+                        <img src="assets/gallery/guava.jpeg" alt="Guava">
+                        <div class="gallery-caption">Guava</div>
+                    </div>
+                    <div class="gallery-card" id="gal-17" data-caption="Jackfruit">
+                        <img src="assets/gallery/jackfruit.jpg" alt="Jackfruit">
+                        <div class="gallery-caption">Jackfruit</div>
+                    </div>
+                    <div class="gallery-card" id="gal-18" data-caption="Shade Canopy">
+                        <img src="assets/gallery/low cost panthal.jpg" alt="Panthal">
+                        <div class="gallery-caption">Shade Canopy</div>
+                    </div>
+                    <div class="gallery-card" id="gal-19" data-caption="Low-Cost Structures">
+                        <img src="assets/gallery/low cost structures.jpg" alt="Structures">
+                        <div class="gallery-caption">Low-Cost Structures</div>
+                    </div>
+                    <div class="gallery-card" id="gal-20" data-caption="Mango Season">
+                        <img src="assets/gallery/mango (1).jpeg" alt="Mango season">
+                        <div class="gallery-caption">Mango Season</div>
+                    </div>
+                    <div class="gallery-card" id="gal-21" data-caption="Mulching">
+                        <img src="assets/gallery/mulching.jpeg" alt="Mulching">
+                        <div class="gallery-caption">Mulching</div>
+                    </div>
+                    <div class="gallery-card" id="gal-22" data-caption="Plant Nursery">
+                        <img src="assets/gallery/plant nursery.jpeg" alt="Plant nursery">
+                        <div class="gallery-caption">Plant Nursery</div>
+                    </div>
+                    <div class="gallery-card" id="gal-23" data-caption="Vegetable Farm">
+                        <img src="assets/gallery/veg farm.jpeg" alt="Veg farm">
+                        <div class="gallery-caption">Vegetable Farm</div>
+                    </div>
+                    <div class="gallery-card" id="gal-24" data-caption="Seedling Nursery">
+                        <img src="assets/gallery/veg seedlings nursery.jpeg" alt="Seedlings">
+                        <div class="gallery-caption">Seedling Nursery</div>
+                    </div>
+                </div><!-- /gc-track -->
+            </div><!-- /gallery-carousel -->
+
+            <div class="gc-dots" id="gcDots" role="tablist" aria-label="Gallery images"></div>
         </div>
     </section>
 
     <!-- ===== LIGHTBOX ===== -->
+
     <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
         <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
         <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#8592;</button>
@@ -425,89 +495,145 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.pillars-grid').forEach(g => pillarObserver.observe(g));
 
-        // ── Gallery Lightbox ──
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCap = document.getElementById('lightbox-caption');
-        const lightboxClose = document.getElementById('lightbox-close');
-        const lightboxPrev = document.getElementById('lightbox-prev');
-        const lightboxNext = document.getElementById('lightbox-next');
+        // ── Gallery Carousel + Lightbox ──
+        (function () {
+            const track = document.getElementById('gcTrack');
+            const dotsWrap = document.getElementById('gcDots');
+            const prevBtn = document.getElementById('gcPrev');
+            const nextBtn = document.getElementById('gcNext');
+            const carousel = document.getElementById('galleryCarousel');
 
-        const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
-        let currentIndex = 0;
+            if (!track || !dotsWrap || !carousel) return; // safety guard
 
-        function openLightbox(index) {
-            currentIndex = index;
-            const card = galleryCards[index];
-            const img = card.querySelector('img');
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-            lightboxCap.textContent = card.dataset.caption || '';
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+            const cards = Array.from(track.querySelectorAll('.gallery-card'));
+            const total = cards.length;
+            let active = 0;
+            let timer = null;
+            const INTERVAL = 3500;
 
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-            setTimeout(() => { lightboxImg.src = ''; }, 300);
-        }
+            // Build dot indicators
+            cards.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'gc-dot';
+                dot.setAttribute('role', 'tab');
+                dot.setAttribute('aria-label', 'Image ' + (i + 1));
+                dotsWrap.appendChild(dot);
+                dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+            });
+            const dots = Array.from(dotsWrap.querySelectorAll('.gc-dot'));
 
-        function showPrev() {
-            currentIndex = (currentIndex - 1 + galleryCards.length) % galleryCards.length;
-            const card = galleryCards[currentIndex];
-            lightboxImg.classList.add('lb-transition');
+            // Centre the active card in the track
+            function centreCard(index, smooth) {
+                const card = cards[index];
+                const offset = card.offsetLeft - (track.offsetWidth / 2) + (card.offsetWidth / 2);
+                if (smooth) {
+                    track.scrollTo({ left: offset, behavior: 'smooth' });
+                } else {
+                    track.scrollLeft = offset;
+                }
+            }
+
+            function goTo(index) {
+                // Remove old active
+                cards[active].classList.remove('gc-active');
+                dots[active].classList.remove('gc-dot-active');
+                // Set new active
+                active = (index + total) % total;
+                cards[active].classList.add('gc-active');
+                dots[active].classList.add('gc-dot-active');
+                centreCard(active, true);
+            }
+
+            function startTimer() {
+                if (timer) clearInterval(timer);
+                timer = setInterval(() => goTo(active + 1), INTERVAL);
+            }
+            function resetTimer() { clearInterval(timer); startTimer(); }
+
+            // Arrow buttons
+            prevBtn.addEventListener('click', () => { goTo(active - 1); resetTimer(); });
+            nextBtn.addEventListener('click', () => { goTo(active + 1); resetTimer(); });
+
+            // Pause on hover / touch
+            carousel.addEventListener('mouseenter', () => clearInterval(timer));
+            carousel.addEventListener('mouseleave', startTimer);
+            carousel.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
+            carousel.addEventListener('touchend', startTimer, { passive: true });
+
+            // Keyboard nav
+            carousel.setAttribute('tabindex', '0');
+            carousel.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft') { goTo(active - 1); resetTimer(); }
+                if (e.key === 'ArrowRight') { goTo(active + 1); resetTimer(); }
+            });
+
+            // Lightbox
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCap = document.getElementById('lightbox-caption');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            let lbIndex = 0;
+
+            function openLightbox(index) {
+                lbIndex = (index + total) % total;
+                const img = cards[lbIndex].querySelector('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxCap.textContent = cards[lbIndex].dataset.caption || '';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                clearInterval(timer);
+            }
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => { lightboxImg.src = ''; }, 300);
+                startTimer();
+            }
+            function lbSwap(index) {
+                lbIndex = (index + total) % total;
+                lightboxImg.classList.add('lb-transition');
+                setTimeout(() => {
+                    const img = cards[lbIndex].querySelector('img');
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightboxCap.textContent = cards[lbIndex].dataset.caption || '';
+                    lightboxImg.classList.remove('lb-transition');
+                }, 160);
+            }
+
+            cards.forEach((card, i) => card.addEventListener('click', () => openLightbox(i)));
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', () => lbSwap(lbIndex - 1));
+            lightboxNext.addEventListener('click', () => lbSwap(lbIndex + 1));
+            lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+            document.addEventListener('keydown', e => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') lbSwap(lbIndex - 1);
+                if (e.key === 'ArrowRight') lbSwap(lbIndex + 1);
+            });
+
+            // Init — wait a tick so offsetLeft values are calculated after layout
             setTimeout(() => {
-                lightboxImg.src = card.querySelector('img').src;
-                lightboxImg.alt = card.querySelector('img').alt;
-                lightboxCap.textContent = card.dataset.caption || '';
-                lightboxImg.classList.remove('lb-transition');
-            }, 150);
-        }
-
-        function showNext() {
-            currentIndex = (currentIndex + 1) % galleryCards.length;
-            const card = galleryCards[currentIndex];
-            lightboxImg.classList.add('lb-transition');
-            setTimeout(() => {
-                lightboxImg.src = card.querySelector('img').src;
-                lightboxImg.alt = card.querySelector('img').alt;
-                lightboxCap.textContent = card.dataset.caption || '';
-                lightboxImg.classList.remove('lb-transition');
-            }, 150);
-        }
-
-        galleryCards.forEach((card, i) => {
-            card.addEventListener('click', () => openLightbox(i));
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxPrev.addEventListener('click', showPrev);
-        lightboxNext.addEventListener('click', showNext);
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') showPrev();
-            if (e.key === 'ArrowRight') showNext();
-        });
+                cards[0].classList.add('gc-active');
+                dots[0].classList.add('gc-dot-active');
+                centreCard(0, false); // instant, no animation on first load
+                startTimer();
+            }, 50);
+        })();
 
         // ── FAQ accordion ──
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.closest('.faq-item');
                 const isOpen = btn.getAttribute('aria-expanded') === 'true';
-
-                // close all
                 document.querySelectorAll('.faq-item').forEach(i => {
                     i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                     i.classList.remove('open');
                 });
-
                 if (!isOpen) {
                     btn.setAttribute('aria-expanded', 'true');
                     item.classList.add('open');
