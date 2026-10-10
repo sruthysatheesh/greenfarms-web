@@ -36,16 +36,8 @@
     <!-- ===== HERO VIDEO ===== -->
     <section class="hero-section hero-video-section" id="home">
         <!-- Fullscreen video background -->
-        <video
-            id="heroVideo"
-            class="hero-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
-            aria-hidden="true">
-            <source src="assets/Final.mov" type="video/mp4">
+        <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+            <source src="assets/Final.mov" type="video/quicktime">
         </video>
 
         <!-- Subtle cinematic overlay -->
@@ -62,15 +54,17 @@
 
         <!-- Mute / Unmute toggle -->
         <button class="hero-mute-btn" id="heroMuteBtn" aria-label="Unmute video" title="Toggle sound">
-            <svg class="icon-muted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <line x1="23" y1="9" x2="17" y2="15"/>
-                <line x1="17" y1="9" x2="23" y2="15"/>
+            <svg class="icon-muted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
             </svg>
-            <svg class="icon-unmuted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            <svg class="icon-unmuted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
             </svg>
         </button>
 
@@ -87,7 +81,8 @@
             <p class="hero-intro-eyebrow">Community Farms for a Greener, Cooler &amp; More Meaningful Future</p>
             <div class="hero-intro-actions">
                 <a href="#about" class="btn-primary" id="hero-learn-more">Discover Our Story</a>
-                <a href="https://tinyurl.com/greenerafarms" target="_blank" class="btn-ghost-dark" id="hero-join">Join the Farm</a>
+                <a href="https://tinyurl.com/greenerafarms" target="_blank" class="btn-ghost-dark" id="hero-join">Join
+                    the Farm</a>
             </div>
         </div>
     </div>
@@ -552,7 +547,7 @@
 
             // Ensure video plays (some browsers require user interaction)
             video.muted = true; // always start muted for autoplay policies
-            video.play().catch(() => {});
+            video.play().catch(() => { });
 
             muteBtn.addEventListener('click', () => {
                 video.muted = !video.muted;
@@ -563,7 +558,7 @@
                     muteBtn.classList.add('is-unmuted');
                     muteBtn.setAttribute('aria-label', 'Mute video');
                     // Restart play in case browser paused due to unmute
-                    video.play().catch(() => {});
+                    video.play().catch(() => { });
                 }
             });
         })();
