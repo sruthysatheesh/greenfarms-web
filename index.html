@@ -764,6 +764,39 @@
                 }
             });
         });
+
+        // ── Hero brand fade sync with video loop ──
+        (function () {
+            const video = document.getElementById('heroVideo');
+            const brand = document.querySelector('.hero-brand');
+            if (!video || !brand) return;
+
+            // Transition is handled via CSS; we just toggle opacity
+            brand.style.transition = 'opacity 1s ease';
+
+            // Track visibility state to avoid redundant DOM writes
+            let brandVisible = true;
+
+            function applyVisibility(t) {
+                // Window 1: fade OUT at 10s, fade IN at 15s
+                // Window 2: fade OUT at 57s, fade IN at loop start (~0s)
+                const shouldBeVisible = !((t >= 10 && t < 15) || t >= 56);
+
+                if (shouldBeVisible !== brandVisible) {
+                    brandVisible = shouldBeVisible;
+                    brand.style.opacity = brandVisible ? '1' : '0';
+                }
+            }
+
+            video.addEventListener('timeupdate', () => {
+                applyVisibility(video.currentTime);
+            });
+
+            // When the video loops back to 0, ensure brand reappears
+            video.addEventListener('seeked', () => {
+                applyVisibility(video.currentTime);
+            });
+        })();
     </script>
 </body>
 
