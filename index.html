@@ -33,28 +33,64 @@
         </nav>
     </header>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero-section" id="home">
-        <div class="hero-bg-image"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
+    <!-- ===== HERO VIDEO ===== -->
+    <section class="hero-section hero-video-section" id="home">
+        <!-- Fullscreen video background -->
+        <video
+            id="heroVideo"
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true">
+            <source src="assets/Final.mov" type="video/mp4">
+        </video>
+
+        <!-- Subtle cinematic overlay -->
+        <div class="hero-video-overlay"></div>
+
+        <!-- Centered wordmark on video -->
+        <div class="hero-video-content">
             <div class="hero-brand reveal-fade">
                 <img src="assets/logo1.png" alt="Greenera Farms" class="hero-logo">
                 <span class="hero-wordmark-name">GREENERA</span>
                 <span class="hero-wordmark-sub">FARMS</span>
             </div>
-            <p class="hero-eyebrow reveal-fade">Community Farms for a Greener, Cooler & More Meaningful Future</p>
-            <div class="hero-actions reveal-fade">
-                <a href="#about" class="btn-primary" id="hero-learn-more">Discover Our Story</a>
-                <a href="https://tinyurl.com/greenerafarms" target=_blank class="btn-ghost" id="hero-join">Join the
-                    Farm</a>
-            </div>
         </div>
+
+        <!-- Mute / Unmute toggle -->
+        <button class="hero-mute-btn" id="heroMuteBtn" aria-label="Unmute video" title="Toggle sound">
+            <svg class="icon-muted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <line x1="23" y1="9" x2="17" y2="15"/>
+                <line x1="17" y1="9" x2="23" y2="15"/>
+            </svg>
+            <svg class="icon-unmuted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            </svg>
+        </button>
+
+        <!-- Scroll hint -->
         <div class="hero-scroll-hint reveal-fade">
             <span>Scroll</span>
             <div class="scroll-line"></div>
         </div>
     </section>
+
+    <!-- ===== HERO INTRO BANNER ===== -->
+    <div class="hero-intro-banner" id="hero-intro">
+        <div class="hero-intro-inner">
+            <p class="hero-intro-eyebrow">Community Farms for a Greener, Cooler &amp; More Meaningful Future</p>
+            <div class="hero-intro-actions">
+                <a href="#about" class="btn-primary" id="hero-learn-more">Discover Our Story</a>
+                <a href="https://tinyurl.com/greenerafarms" target="_blank" class="btn-ghost-dark" id="hero-join">Join the Farm</a>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== ABOUT ===== -->
     <section id="about" class="content-section about-section scroll-reveal">
@@ -508,6 +544,30 @@
     </footer>
 
     <script>
+        // ── Video Hero: Mute / Unmute ──
+        (function () {
+            const video = document.getElementById('heroVideo');
+            const muteBtn = document.getElementById('heroMuteBtn');
+            if (!video || !muteBtn) return;
+
+            // Ensure video plays (some browsers require user interaction)
+            video.muted = true; // always start muted for autoplay policies
+            video.play().catch(() => {});
+
+            muteBtn.addEventListener('click', () => {
+                video.muted = !video.muted;
+                if (video.muted) {
+                    muteBtn.classList.remove('is-unmuted');
+                    muteBtn.setAttribute('aria-label', 'Unmute video');
+                } else {
+                    muteBtn.classList.add('is-unmuted');
+                    muteBtn.setAttribute('aria-label', 'Mute video');
+                    // Restart play in case browser paused due to unmute
+                    video.play().catch(() => {});
+                }
+            });
+        })();
+
         // ── Navbar scroll behaviour ──
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
